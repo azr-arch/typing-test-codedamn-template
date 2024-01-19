@@ -1,7 +1,14 @@
 // CHALLENGE 1:
 // Task: Create a React component named 'Timer' that displays '30' on the screen.
-// Hint: Use the `React` import and the `return` statement in your functional component to display '30'.
-// Learning Resource: React Components - https://reactjs.org/docs/components-and-props.html
+
+// Solution:
+// import React from 'react';
+
+// const Timer = () => {
+//     return <div>30</div>;
+// };
+
+// export default Timer;
 
 // -------------------------------------------------------------------------------------------------------------------- //
 // -------------------------------------------------------------------------------------------------------------------- //
@@ -9,17 +16,39 @@
 
 // CHALLENGE 2:
 // Task: Modify the Timer component to use the useState hook to manage the time.
-// Hint: Use the `useState` hook from React to create a state variable for the time.
-// Learning Resource: Using the State Hook - https://reactjs.org/docs/hooks-state.html
+
+// Solution:
+// import React, { useState } from 'react';
+
+// const Timer = () => {
+//     const [seconds, setSeconds] = useState(30);
+
+//     return <div>{seconds}</div>;
+// };
 
 // -------------------------------------------------------------------------------------------------------------------- //
 // -------------------------------------------------------------------------------------------------------------------- //
 // -------------------------------------------------------------------------------------------------------------------- //
 
-// CHALLENGE 3:
+// CHALLENGE 3
 // Task: Modify the Timer component to count down from 30 seconds using the useEffect hook.
-// Hint: Use the `useEffect` hook from React to create an effect that updates the time every second.
-// Learning Resource: Using the Effect Hook - https://reactjs.org/docs/hooks-effect.html
+
+// Solution:
+// import React, { useState, useEffect } from 'react';
+
+// const Timer = () => {
+//     const [seconds, setSeconds] = useState(30);
+
+//     useEffect(() => {
+//         const interval = setInterval(() => {
+//             setSeconds((prevSeconds) => prevSeconds - 1);
+//         }, 1000);
+
+//         return () => clearInterval(interval);
+//     }, []);
+
+//     return <div>{seconds}</div>;
+// };
 
 // -------------------------------------------------------------------------------------------------------------------- //
 // -------------------------------------------------------------------------------------------------------------------- //
@@ -27,3 +56,29 @@
 
 // CHALLENGE 4
 // Task: Modify the Timer component to call 'onTestEnd' when the countdown reaches zero.
+
+// Solution:
+// const Timer = ({ testStart, onTestEnd }) => {
+//     const [seconds, setSeconds] = useState(30);
+
+//     useEffect(() => {
+//         let interval = undefined;
+
+//         if (testStart && seconds > 0) {
+//             interval = setInterval(() => {
+//                 setSeconds((prev) => prev - 1);
+//             }, 1000);
+//         } else if (seconds === 0) {
+//             onTestEnd();
+//         }
+
+//         return () => clearInterval(interval);
+//     }, [testStart, seconds, onTestEnd]);
+
+//     return (
+//         <div className="timer">
+//             <p>Timer</p>
+//             <span>{seconds}</span>
+//         </div>
+//     );
+// };
