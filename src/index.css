@@ -1,0 +1,62 @@
+:root {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    height: 100vh;
+}
+
+/* TIMER COMPONENT */
+.timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.timer > p {
+    text-transform: uppercase;
+    font-size: 0.75rem; /* equivalent to text-xs */
+    color: #d6bcfa; /* light purple color */
+    font-weight: 600; /* equivalent to font-semibold */
+}
+
+.timer > span {
+    font-size: 3rem; /* equivalent to text-5xl */
+    font-weight: 600; /* equivalent to font-semibold */
+    color: #000000; /* black color */
+}
+
+/* TYPING TEST COMPONENT */
+.typing-test {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.typing-test > input {
+    position: absolute;
+    left: -9999px;
+}
+
+/* Flickering bar Animation */
+
+.animate-flicker {
+    animation: flicker 1.2s infinite;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
